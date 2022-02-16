@@ -63,7 +63,8 @@ export async function deleteBlog(id) {
     const target = doc(db, "blogs", id)
     await deleteDoc(target)
         .then((res) => {
-            console.log("blog deleted", res);
+            alert("blog deleted")
+            console.log("blog deleted");
             getBlogs();
         })
         .catch((err) => {
@@ -75,6 +76,8 @@ export async function addBlog(newBlog) {
     await addDoc(blogsCollectionRef, newBlog)
         .then((res) => {
             console.log("added successfully");
+            let blogid = res._key.path.segments[1]
+            window.location.href=process.env.REACT_APP_BASE_LOCAL_PATH+'blog/'+blogid
         })
         .catch((err) => {
             console.log(err);

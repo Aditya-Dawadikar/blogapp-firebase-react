@@ -6,7 +6,11 @@ import UserSidebar from '../components/UserSidebar'
 import { useDispatch,useSelector } from 'react-redux'
 import {getAllMyBlogs} from '../redux/actions/BlogActions'
 
+import {isAuthenticated} from '../services/AuthService'
+
 const UserContent = () => {
+
+  isAuthenticated()
 
   const username = JSON.parse(window.sessionStorage.getItem('currUser')).username
 

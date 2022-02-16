@@ -6,7 +6,10 @@ import UserSidebar from '../components/UserSidebar'
 import { useDispatch,useSelector } from 'react-redux'
 import {readSomeBlog} from '../redux/actions/BlogActions'
 
+import {isAuthenticated} from '../services/AuthService'
+
 const ReadBlog = () => {
+  isAuthenticated()
   const blogid = useParams().id
 
   const dispatch = useDispatch()

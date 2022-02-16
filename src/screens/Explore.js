@@ -6,7 +6,11 @@ import UserSidebar from '../components/UserSidebar'
 import { useDispatch,useSelector } from 'react-redux'
 import {getAllBlogs} from '../redux/actions/BlogActions'
 
+import {isAuthenticated} from '../services/AuthService'
+
 const Explore = () => {
+
+  isAuthenticated()
 
   const dispatch = useDispatch()
   const blogsFromStore = useSelector((state)=>state.blogs.blogs)

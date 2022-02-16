@@ -18,10 +18,6 @@ const Navigation = () => {
   }
 
   useEffect(() => {
-    console.log(user)
-  }, [user])
-
-  useEffect(() => {
     setuser(JSON.parse(sessionStorage.getItem('currUser')))
   }, [sessionStorage])
 
@@ -37,6 +33,7 @@ const Navigation = () => {
             <Nav className="me-auto">
               <Nav.Link href="/explore">Explore</Nav.Link>
               <Nav.Link href="/user/me">My Content</Nav.Link>
+              <Nav.Link href="/compose">Compose</Nav.Link>
             </Nav>
             <button className='btn btn-primary' style={{ borderRadius: "20px", minWidth: "100px", margin: "0px 10px 0px 10px" }} onClick={() => { handleSignout() }}>Logout</button>
           </Navbar.Collapse>

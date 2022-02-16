@@ -1,6 +1,4 @@
 import {
-    signInWithPopup,
-    GoogleAuthProvider,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut
@@ -16,7 +14,6 @@ import {
     where,
 } from "firebase/firestore";
 import { db } from '../firebaseConfig'
-
 
 const usersCollectionRef = collection(db, "users");
 

@@ -7,8 +7,10 @@ import Explore from './screens/Explore'
 import ReadBlog from './screens/ReadBlog'
 import UserContent from './screens/UserContent'
 import Navigation from './components/Navigation';
+import Compose from './screens/Compose';
 
 function App() {
+
   return (
     <div className="App">
       <Navigation/>
@@ -18,6 +20,7 @@ function App() {
           <Route path='/explore' element={<Explore/>} />
           <Route path='/blog/:id' element={<ReadBlog/>} />
           <Route path='/user/:username' element={<UserContent/>} />
+          <Route path='/compose' element={<Compose/>} />
         </Routes>
       </BrowserRouter>
       

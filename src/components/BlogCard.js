@@ -1,13 +1,12 @@
 import React,{useState,useEffect} from 'react'
+import {deleteBlog} from '../services/BlogService'
 
 const BlogCard = ({blog,giveRights}) => {
 
   const [post,setpost] = useState(blog)
   const base_url = process.env.REACT_APP_BASE_LOCAL_PATH
-  // const base_url = "http://localhost:3000/"
 
   useEffect(()=>{
-    // console.log(process.env.REACT_APP_BASE_LOCAL_PATH )
     setpost(blog)
   },[blog])
 
@@ -26,7 +25,7 @@ const BlogCard = ({blog,giveRights}) => {
           <a href={base_url+'blog/'+post.id} className="btn btn-primary">Read More...</a>
           {
             giveRights===true?<div className='d-flex'>
-              <div className='btn btn-danger m-1'>Delete</div>
+              <div className='btn btn-danger m-1' onClick={()=>{deleteBlog(post.id)}}>Delete</div>
             </div>:<></>
           }
         </div>
