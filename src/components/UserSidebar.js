@@ -2,8 +2,9 @@ import React,{useState,useEffect} from 'react'
 
 const UserSidebar = () => {
 
+    const username = JSON.parse(window.sessionStorage.getItem('currUser')).username
     const [user,setuser] = useState({
-        username:"abcde"
+        username:username
     })
     return (
         <div className="position-fixed sidebar">

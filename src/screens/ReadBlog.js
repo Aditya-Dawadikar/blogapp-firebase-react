@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import UserSidebar from '../components/UserSidebar'
 
@@ -6,13 +7,14 @@ import { useDispatch,useSelector } from 'react-redux'
 import {readSomeBlog} from '../redux/actions/BlogActions'
 
 const ReadBlog = () => {
-  
+  const blogid = useParams().id
+
   const dispatch = useDispatch()
 
   const [blog, setblog] = useState({})
 
   useEffect(()=>{
-    dispatch(readSomeBlog('F8acRozzMFvozEGWm0fz'))
+    dispatch(readSomeBlog(blogid))
   },[])
 
   const blogFromStore=useSelector((state)=>state.currBlog.currBlog)
