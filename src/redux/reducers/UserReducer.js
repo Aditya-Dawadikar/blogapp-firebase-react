@@ -1,33 +1,15 @@
 import {actions} from '../constants/UserConstants'
 
-export const LoginReducer=(state={},action)=>{
+export const UserReducer=(state={},action)=>{
     switch(action.type){
-        case actions.LOGIN_REQUEST:
-            return {}
-        
         case actions.LOGIN_SUCCESS:
-            return {}
-        
-        case actions.LOGIN_FAILED:
-            return {}
-
-        default:
-            return {}
-    }
-}
-
-export const SignupReducer=(state={},action)=>{
-    switch(action.type){
-        case actions.SIGNUP_REQUEST:
-            return {}
-        
+            let user = JSON.parse(window.sessionStorage.getItem('currUser'))
+            return {currUser:user}
         case actions.SIGNUP_SUCCESS:
-            return {}
-        
-        case actions.SIGNUP_FAILED:
-            return {}
-
+            return {currUser:action.payload}
+        case actions.SIGNOUT:
+            return {currUser:null}
         default:
-            return {}
+            return state
     }
 }

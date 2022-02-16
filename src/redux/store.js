@@ -3,26 +3,23 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { BlogsReducer } from './reducers/BlogsReducer'
-import { LoginReducer, SignupReducer } from './reducers/UserReducer';
+import { UserReducer } from './reducers/UserReducer';
 
 const reducer = combineReducers({
     blogs: BlogsReducer,
-    login: LoginReducer,
-    signup: SignupReducer,
-    currBlog: BlogsReducer
+    currBlog: BlogsReducer,
+    currUser: UserReducer
 })
-
-const userFromStorage = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
 
 const initState = {
     blogs: {
         blogs: []
     },
-    login: {
-        user: userFromStorage
-    },
     currBlog: {
         currBlog:{}
+    },
+    currUser:{
+        currUser:null   
     }
 }
 

@@ -3,7 +3,12 @@ import { Tabs, Tab } from 'react-bootstrap'
 
 import {login,signup,signin} from '../services/UserService'
 
+import { useDispatch } from 'react-redux'
+import { loginAction,signupAction } from '../redux/actions/UserActions'
+
 const Login = () => {
+
+  const dispatch = useDispatch()
 
   const [loginobject, setloginobject] = useState(null)
 
@@ -13,12 +18,9 @@ const Login = () => {
 
   function handleSubmit(e){
     e.preventDefault()
-    login(loginobject)
+    // login(loginobject)
+    dispatch(loginAction(loginobject))
   }
-
-  useEffect(() => {
-    // console.log(loginobject)
-  }, [loginobject])
 
   return <div className="card standard-shadow p-3">
     <h3>Login</h3>
@@ -45,15 +47,13 @@ const Signup = () => {
     signup(signupobject)
   }
 
-  useEffect(() => {
-    // console.log(signupobject)
-  }, [signupobject])
-
   return <div className="card standard-shadow p-3">
     <h3>Signup</h3>
     <form className="m-2">
       <label>Email</label>
       <input type="email" className='form-control' placeholder="johndoe@gmail.com" name="email" required  onChange={(e) => { handleChange(e) }}/>
+      <label>Username</label>
+      <input type="text" className='form-control' placeholder="johndoe@gmail.com" name="username" required  onChange={(e) => { handleChange(e) }}/>
       <label>Password</label>
       <input type="password" className='form-control' placeholder="********" name="password" required  onChange={(e) => { handleChange(e) }}/>
       <label>Confirm Password</label>

@@ -49,7 +49,7 @@ export async function getMyBlogs(username) {
         blogsCollectionRef,
         where("author", "==", username)
     );
-    const querySnapshot = await getDocs(q).then(res => {
+    await getDocs(q).then(res => {
         res.docs.map(blog => {
             let blog_doc = blog.data()
             blog_doc["id"] = blog.id
